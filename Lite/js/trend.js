@@ -1,28 +1,28 @@
-const resultsWrap = document.getElementById("searchResults");
-const navSearchInput = document.getElementById("navSearchInput");
-const navSearchBtn = document.getElementById("navSearchBtn");
+const resultsWrap = document.getElementById("searchresults");
+const navSearchInput = document.getElementById("navsearchinput");
+const navSearchBtn = document.getElementById("navsearchbtn");
 const grid = document.getElementById("grid");
-async function fetchTrendingSongs(){
-  try{
+async function fetchTrendingSongs() {
+  try {
     const response = await fetch("https://itunes.apple.com/us/rss/topsongs/limit=80/json");
     const data = await response.json();
-    const songs = data.feed.entry.map((item,index) =>({
+    const songs = data.feed.entry.map((item, index) => ({
       title: item["im:name"].label,
       artist: item["im:artist"].label,
       rank: index + 1,
       image: item["im:image"][2].label
     }));
     starttop(songs);
-  }catch(error){
+  } catch (error) {
     console.error("Failed to fetch songs", error);
   }
 }
-if(grid){
-    fetchTrendingSongs();
+if (grid) {
+  fetchTrendingSongs();
 }
-function starttop(songs){
+function starttop(songs) {
   grid.innerHTML = "";
-  songs.forEach(song =>{
+  songs.forEach(song => {
     const card = document.createElement("div");
     card.className = "songcard";
     card.innerHTML = `
@@ -43,19 +43,19 @@ function starttop(songs){
         </div>
       </div>
     `;
-    card.addEventListener("click",() =>{
+    card.addEventListener("click", () => {
       card.classList.toggle("flipped");
     });
     grid.appendChild(card);
   });
 }
 wireNavSearch();
-function wireNavSearch(){
-  if(!navSearchInput || !navSearchBtn) 
+function wireNavSearch() {
+  if (!navSearchInput || !navSearchBtn)
     return;
-  navSearchBtn.addEventListener("click",runSearch);
-  navSearchInput.addEventListener("keydown",(e) =>{
-    if(e.key === "Enter") runSearch();
+  navSearchBtn.addEventListener("click", runSearch);
+  navSearchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") runSearch();
   });
 }
 let currentAudio = null;
@@ -70,25 +70,25 @@ function wireSingleAudioPlayback(scopeEl) {
     });
   });
 }
-async function runSearch(){
+async function runSearch() {
   const q = navSearchInput.value.trim();
-  if(!q) return;
+  if (!q) return;
   showSearchLoading(q);
-  try{
+  try {
     const url = `https://itunes.apple.com/search?term=${encodeURIComponent(q)}&entity=song&limit=5`;
     const res = await fetch(url);
-    if(!res.ok) 
+    if (!res.ok)
       throw new Error("Search request failed");
     const data = await res.json();
-    const tracks = data.results || []; 
-    showSearchCards(tracks,q);
-  }catch(err){
+    const tracks = data.results || [];
+    showSearchCards(tracks, q);
+  } catch (err) {
     console.error(err);
     showSearchError();
   }
 }
-function showSearchLoading(q){
-  if(!resultsWrap) return;
+function showSearchLoading(q) {
+  if (!resultsWrap) return;
   resultsWrap.innerHTML = `
     <div class="search-card">
       <div class="search-meta">
@@ -99,8 +99,8 @@ function showSearchLoading(q){
     </div>
   `;
 }
-function showSearchEmpty(q){
-  if(!resultsWrap) return;
+function showSearchEmpty(q) {
+  if (!resultsWrap) return;
   resultsWrap.innerHTML = `
     <div class="search-card">
       <div class="search-meta">
@@ -110,8 +110,8 @@ function showSearchEmpty(q){
     </div>
   `;
 }
-function showSearchError(){
-  if(!resultsWrap) return;
+function showSearchError() {
+  if (!resultsWrap) return;
   resultsWrap.innerHTML = `
     <div class="search-card">
       <div class="search-meta">
@@ -176,7 +176,7 @@ function showSearchCards(tracks, q) {
     setDefaultPreviewVolume(searchGrid, 0.5);
   });
 }
-function escapeHtml(str){
+function escapeHtml(str) {
   return String(str)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -184,7 +184,7 @@ function escapeHtml(str){
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-function formatDate(iso){
+function formatDate(iso) {
   const d = new Date(iso);
   return isNaN(d) ? "N/A" : d.toLocaleDateString();
 }
