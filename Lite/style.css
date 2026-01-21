@@ -1,4 +1,5 @@
-:root{
+:root,
+  :root.dark{
   --black1:#000000;
   --black2:#0e0e0f;
   --black3:#0b0b0d;
@@ -9,7 +10,19 @@
   --white:#FFFBF2;
   --gray:#DFE2DB;
   --gray2:#333;
-}
+  }
+  :root.light{
+  --black1:#FFFFFF;
+  --black2:#babbbc;
+  --black3:#f4f4f4;
+  --dark:#FFFFFF;
+  --dark2:#F1F3F6;
+  --red2:#d7292c;
+  --red1:#ee142d;
+  --white:#3e3e3e;
+  --gray:#3A3F45;
+  --gray2:#C9CED6; 
+  }
 html{ 
   overflow-y: scroll; 
 }
@@ -30,7 +43,7 @@ nav{
   position: sticky;
   width: 100%;
   top:0;
-  z-index: 9999;
+  z-index: 9999; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,6 +53,10 @@ nav{
 nav h1{
   font-family: "Yuji Boku";
   color: var(--red1);
+}
+.modetoggle{
+  height: 25px;
+  cursor: pointer;
 }
 nav ul{
   display: flex;
@@ -169,7 +186,7 @@ button:hover {
   border-radius: 999px;
   background: var(--red2);
   border:none;
-  color:#fff;
+  color: var(--white);
   cursor:pointer;
 }
 .navsearch button:hover{
@@ -230,7 +247,7 @@ button:hover {
   border-color: rgba(225, 6, 0, 0.6);
   box-shadow: 0 0 25px rgba(225, 6, 0, 0.18);
   overflow: hidden;
-  background: #141417;
+  background: var(--dark2);
   transition: 0.3s;
 }
 .songcard.flipped .card-inner{
