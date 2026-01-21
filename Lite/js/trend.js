@@ -49,8 +49,8 @@ function starttop(songs) {
     grid.appendChild(card);
   });
 }
-wireNavSearch();
-function wireNavSearch() {
+NavSearch();
+function NavSearch() {
   if (!navSearchInput || !navSearchBtn)
     return;
   navSearchBtn.addEventListener("click", runSearch);
@@ -188,5 +188,3 @@ function formatDate(iso) {
   const d = new Date(iso);
   return isNaN(d) ? "N/A" : d.toLocaleDateString();
 }
-
-
