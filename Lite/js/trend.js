@@ -4,7 +4,7 @@ const navSearchBtn = document.getElementById("navsearchbtn");
 const grid = document.getElementById("grid");
 async function fetchTrendingSongs() {
   try {
-    const response = await fetch("https://itunes.apple.com/us/rss/topsongs/limit=90/json");
+    const response = await fetch("https://itunes.apple.com/in/rss/topsongs/limit=90/json");
     const data = await response.json();
     const songs = data.feed.entry.map((item, index) => ({
       title: item["im:name"].label,

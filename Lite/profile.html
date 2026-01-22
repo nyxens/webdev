@@ -6,6 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <title>HumIt</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -17,17 +18,27 @@
       <li><a href="home.html">Home</a></li>
       <li><a href="porter.html">Porter</a></li>
       <li><a href="trending.html">Trending</a></li>
-      <li><a href="login.html">Login</a></li>
+      <li><a href="profile.html">Profile</a></li>
     </ul>
   </nav>
-  <div class="logincard">
-    <h2>Sign In</h2>
-    <input id="email" type="email" placeholder="Email" />
-    <div class="wrapper1">
-      <input id="password" type="password" placeholder="Password" />
-      <img class="toggle" id="toggle" src="images/show.png" />
+  <div class="profile-card">
+      <div class="profile">
+        <h1>Welcome</h1>
+        <h1>Back</h1>
+        <h2>Krishna</h2>
+        <div id="aboutwrap">
+            <a>About me</a>
+            <button><i class="fa fa-pencil"></i></button>
+        </div>
+        <textarea></textarea>
+      </div>
+      <div class="library">
+        <h1>Library</h1>
+        <h2>Playlists</h2>
+        <div class="playlists"></div>
+        <h2>Songs</h2>
+        <div class="songs"></div>
     </div>
-    <button id="login">LOGIN</button>
   </div>
   <div id="musiceffect"></div>
   <script src="js/musiceffect.js"></script>

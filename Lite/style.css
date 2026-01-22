@@ -3,6 +3,7 @@
   --black1:#000000;
   --black2:#0e0e0f;
   --black3:#0b0b0d;
+  --black4:#1b1b1b;
   --dark:#0f0f10;
   --dark2:#141417;
   --red1:#C10206;
@@ -15,11 +16,12 @@
   --black1:#FFFFFF;
   --black2:#babbbc;
   --black3:#f4f4f4;
+  --black4:#b1b1b1;
   --dark:#FFFFFF;
   --dark2:#F1F3F6;
   --red2:#d7292c;
   --red1:#ee142d;
-  --white:#3e3e3e;
+  --white:#161616;
   --gray:#3A3F45;
   --gray2:#C9CED6; 
   }
@@ -388,3 +390,83 @@ audio::-webkit-media-controls-panel {
   }
 }
 /* music ends */
+/* profile starts */
+.profile-card{
+  position: relative;
+  max-width: 1500px;
+  margin: 20px 10px;
+  display: flex;
+  background-color: var(--dark2);
+  border: 2px solid var(--red2);
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.profile-card:hover{
+  position: relative;
+  max-width: 1500px;
+  margin: 20px 10px;
+  display: flex;
+  background-color: var(--dark2);
+  border: 2px solid var(--red1);
+  box-shadow: 0 0 25px rgba(225, 6, 0, 0.18);
+  border-radius: 20px;
+}
+.profile{
+  max-width: 450px;
+  padding: 20px;
+  font-size: large;
+  color: var(--white);
+}
+.profile h2{
+  font-family: "Yuji Boku";
+  margin-top: 15px;
+  color:var(--red1);
+  margin-bottom: 20px;
+}
+#aboutwrap{
+  display: flex;
+  max-width: 400px;
+  justify-content: space-between;
+  padding:8px;
+  color: var(--gray);
+  font-size: medium;
+}
+#aboutwrap button{
+  height: 28px;
+  width: 28px;
+  background-color: var(--red1);
+  color: var(--white);
+  border: none;
+  border-radius: 3px;
+}
+.profile textarea{
+  resize: none;
+  border: 1px solid var(--black4);
+  background-color:var(--dark);
+  height: 400px;
+  width: 380px;
+  border-radius: 10px;
+}
+.library{
+  margin-left: 80px;
+  padding: 20px;
+  color: var(--white);
+}
+.library h2{
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.playlists{
+  height: 220px;
+  max-width: 950px;
+  border: 1px solid var(--black4);
+  border-radius: 10px;
+  background-color:var(--dark);
+}
+.songs{
+  height: 220px;
+  max-width: 950px;
+  border: 1px solid var(--black4);
+  border-radius: 10px;
+  background-color:var(--dark);
+}

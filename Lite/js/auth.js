@@ -16,4 +16,5 @@ login.addEventListener("click", () => {
     const email = document.getElementById("email").value;
     const pass = document.getElementById("password").value;
     console.log(email,pass);
+    window.location.href = "profile.html";
 });
